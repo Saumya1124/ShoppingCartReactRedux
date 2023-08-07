@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Card from '../UI/Card';
 import classes from './Cart.module.css';
 import CartItem from './CartItem';
-import { Fragment } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 
 
 const Cart = (props) => {
@@ -14,6 +14,25 @@ const Cart = (props) => {
   const addCartItem = useSelector(state => state.addCartItem.items);
 
   console.log(addCartItem)
+
+  const [getData , setGetData] = useState()
+
+  // useEffect( () => {
+
+  //   const res = fetch('https://book-shop-dc783-default-rtdb.firebaseio.com/cart.json')
+
+  //   res.then( res => {
+
+  //       if(res.ok){
+  //           res.json().then(data => {
+  //               console.log(data)
+  //               console.log('fetched')
+  //               setGetData(data)
+  //           })
+  //       }
+  //   })
+
+  // } ,[addCartItem])
 
   return (
 

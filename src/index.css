@@ -29,3 +29,12 @@ button:active {
   border-color: #1ac5d1;
   color: white;
 }
+
+.sending{
+  background-color: #1a8ed1;
+}
+.sending p{
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
