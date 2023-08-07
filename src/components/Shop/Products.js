@@ -16,9 +16,11 @@ const Products = (props) => {
 
   const addItemHandler = (id) => {
 
-    const addProduct = [
-      {id : id , title : products[id-1].title , price : products[id-1].price , description : products[id-1].description}
-    ]
+    console.log(id)
+
+    const addProduct = 
+      {id : Number(id) , title : products[id-1].title , price : products[id-1].price , description : products[id-1].description , quantity : 1 , totalPrice : products[id-1].price}
+    
 
     
 

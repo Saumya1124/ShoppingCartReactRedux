@@ -15,7 +15,6 @@ const Cart = (props) => {
 
   console.log(addCartItem)
 
-
   return (
 
     <Fragment>
@@ -23,9 +22,15 @@ const Cart = (props) => {
                 <Card className={classes.cart}>
                 <h2>Your Shopping Cart</h2>
                 <ul>
-                 <CartItem
-                    item={{ title: 'Test Item', quantity: 3, total: 18, price: 6 }}
-                  />
+
+
+                  {addCartItem.map((data)=>
+                      <CartItem
+                      item={{ id : data.id , title: data.title , quantity: data.quantity , total: data.totalPrice, price: data.price  }}
+                      />                  
+                  )}
+                  
+                 
                 </ul>
               </Card>
               
