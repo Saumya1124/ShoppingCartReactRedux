@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
+
 const initialCartState = { isOpen : false }
 
 const cartSlice = createSlice({
@@ -15,6 +17,9 @@ const cartSlice = createSlice({
 
 
 })
+
+
+
 
 export const cartActions = cartSlice.actions;
 

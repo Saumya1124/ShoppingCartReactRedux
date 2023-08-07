@@ -11,7 +11,7 @@ const CartItem = (props) => {
   const addItemHandler = (event) => {
     const id = event.target.id
     console.log(id)
-    dispatch(addCartItemActions.addItem({id}))
+    dispatch(addCartItemActions.addItem({id : id , title : title, price : price }))
   }
 
   const removeItemHandler = (event) => {

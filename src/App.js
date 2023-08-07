@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Fragment, useEffect , useState} from 'react';
 import Notification from './components/UI/Notification';
 import { notificationActions } from './store/notificationSlice';
+import { sendCartData } from './store/cartActions';
 
 let isInitial = true
 
@@ -24,39 +25,12 @@ function App() {
       isInitial=false
       return
     }
-
-  
-
-    dispatch(notificationActions.addNotification({show:true , status:'sending',title:'Sending...', message:'Sending cart data!'}))
-
-      const res = fetch('https://book-shop-dc783-default-rtdb.firebaseio.com/cart.json',{
-      method : 'PUT',
-      body : JSON.stringify(addCartItem),
-      headers : {
-        'content-type' : 'application/json'
-      }
-    })
-
-    
-
-    res.then(res => {
-       if(res.ok){
-            res.json().then(data => {
-                console.log(data)
-                dispatch(notificationActions.addNotification({show : true ,status:'success',title:'Success!',message:'Sent cart data successfully!'}))
-
-            })
-       }
-       else{
-            console.log('Error has occured')
-            dispatch(notificationActions.addNotification({show : true ,status:'error',title:'Error!',message:'Sending error message failed!'}))
-           
-       }
-    }) 
-    
+    dispatch(sendCartData(addCartItem))
   
 
 } ,[addCartItem , dispatch])
+
+ console.log(addCartItem)
 
 
 

@@ -17,10 +17,10 @@ const Products = (props) => {
 
   const addItemHandler = (id) => {
 
-    console.log(id)
+    const id1 = Number(id)
 
     const addProduct = 
-      {id : Number(id) , title : products[id-1].title , price : products[id-1].price , description : products[id-1].description , quantity : 1 , totalPrice : products[id-1].price}
+      {id : Number(id1) , title : products[id1-1].title , price : products[id1-1].price , description : products[id1-1].description , quantity : 1 , totalPrice : products[id1-1].price}
     
     dispatch(addCartItemActions.addItem(addProduct))
   }

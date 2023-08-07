@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";  
+import { createSlice } from "@reduxjs/toolkit"; 
+import { notificationActions } from './notificationSlice'; 
 
 const initialAddItem = { items : [] , }
 
@@ -9,7 +10,9 @@ const addCartItemSlice = createSlice({
         addItem(state,action){
 
             const newItem = action.payload
+            console.log(newItem)
             const existingItem = state.items.find((item) => item.id === Number(newItem.id))
+            // console.log(existingItem.totalPrice)
            
             if(!existingItem){
                 state.items.push(newItem)
@@ -30,18 +33,17 @@ const addCartItemSlice = createSlice({
                 existingItem.quantity--
                 existingItem.totalPrice = existingItem.totalPrice - existingItem.price
             }
-        }
+        },
+        replaceCart(state, action) {
+            state.totalQuantity = action.payload.totalQuantity;
+            state.items = action.payload.items;
+          },
     }
 })
+
+
 
 export const addCartItemActions = addCartItemSlice.actions
 
 export default addCartItemSlice.reducer
 
-
-// {
-//     id : newItem.id,
-//     price : newItem.price,
-//     quantity : 1,
-//     title : newItem.title
-// }
